@@ -2,3 +2,4 @@
 
 HI~DOMO
 THANKS~
+GOOD~

@@ -1,4 +1,4 @@
-package islab.emissarycrisis.domain.usecase.player;
+package islab.emissarycrisis.domain.usecase.player.sent;
 
 public class SentConfidentialMessageUseCaseInput {
     private String fromPlayerId;

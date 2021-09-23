@@ -8,6 +8,17 @@ group = 'islab'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '16'
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/milestone' }
@@ -16,6 +27,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.5.4'
+    implementation 'com.google.firebase:firebase-admin:8.0.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
 }
 

@@ -21,4 +21,9 @@ public class InMemoryGameCardRepository implements IGameCardRepository {
     public void add(GameCard card) {
         cards.add(card);
     }
+
+    @Override
+    public List<GameCard> getGameCards(){
+        return cards;
+    }
 }

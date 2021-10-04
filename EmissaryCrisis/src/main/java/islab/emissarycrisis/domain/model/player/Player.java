@@ -1,13 +1,17 @@
 package islab.emissarycrisis.domain.model.player;
 
+import islab.emissarycrisis.domain.model.DomainEventHolder;
 import islab.emissarycrisis.domain.model.gamecard.GameCard;
+import islab.emissarycrisis.domain.model.player.event.ConfidentialMessageSent;
+import islab.emissarycrisis.domain.model.turn.event.TurnStarted;
+import islab.emissarycrisis.domain.usecase.player.sent.SentConfidentialMessageUseCase;
 
 import java.util.List;
 
-public class Player {
+public class Player extends DomainEventHolder {
     private String id;
     private CampCard campCard;
-    private List<GameCard> gameCards;
+    private List<String> gameCards;
     private List<Message> messages;
 
     public String getId() {
@@ -26,11 +30,11 @@ public class Player {
         this.campCard = campCard;
     }
 
-    public List<GameCard> getGameCards() {
+    public List<String> getGameCards() {
         return gameCards;
     }
 
-    public void setGameCards(List<GameCard> gameCards) {
+    public void setGameCards(List<String> gameCards) {
         this.gameCards = gameCards;
     }
 
@@ -42,11 +46,12 @@ public class Player {
         this.messages = messages;
     }
 
-    public void sentConfidentialMessage(GameCard card) {
-        for(GameCard handCard : gameCards)
-            if(handCard.getId().equals(card.getId())){
-                gameCards.remove(handCard);
+    public void sentConfidentialMessage(String toPlayerId, String cardId) {
+        for(String handCardId : gameCards)
+            if(handCardId.equals(cardId)){
+                gameCards.remove(handCardId);
                 break;
             }
+        this.addEvent( new ConfidentialMessageSent(this.getId(),toPlayerId, cardId));
     }
 }

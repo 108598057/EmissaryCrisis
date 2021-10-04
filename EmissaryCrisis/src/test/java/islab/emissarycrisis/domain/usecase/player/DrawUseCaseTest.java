@@ -8,9 +8,6 @@ import islab.emissarycrisis.domain.model.player.Player;
 import islab.emissarycrisis.domain.usecase.Utility;
 import islab.emissarycrisis.domain.usecase.gamecard.repository.IGameCardRepository;
 import islab.emissarycrisis.domain.usecase.player.repository.IPlayerRepository;
-import islab.emissarycrisis.domain.usecase.player.sent.SentConfidentialMessageUseCase;
-import islab.emissarycrisis.domain.usecase.player.sent.SentConfidentialMessageUseCaseInput;
-import islab.emissarycrisis.domain.usecase.player.sent.SentConfidentialMessageUseCaseOutput;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,15 +17,15 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class SentConfidentialMessageUseCaseTest {
-    private static IPlayerRepository playerRepository;
+public class DrawUseCaseTest {
+
+    private static IPlayerRepository playerRepository ;
     private static IGameCardRepository gameCardRepository;
     private static List<Player> players;
     private static DomainEventBus eventBus ;
-
     @BeforeAll
     public static void setup(){
-        playerRepository = new InMemoryPlayerRepository();
+        playerRepository = new InMemoryPlayerRepository() ;
         gameCardRepository = new InMemoryGameCardRepository();
         Utility utility = new Utility();
         players = utility.createPlayers();
@@ -40,19 +37,20 @@ public class SentConfidentialMessageUseCaseTest {
     }
 
     @Test
-    public void sentConfidentialMessageUseCase() {
-        SentConfidentialMessageUseCase sentConfidentialMessageUseCase = new SentConfidentialMessageUseCase(playerRepository, gameCardRepository,eventBus);
-        SentConfidentialMessageUseCaseInput input = new SentConfidentialMessageUseCaseInput();
-        SentConfidentialMessageUseCaseOutput output = new SentConfidentialMessageUseCaseOutput();
-
-        input.setFromPlayerId(players.get(0).getId());
-        input.setToPlayerId(players.get(1).getId());
-        input.setGameCardId(players.get(0).getGameCards().get(0));
-
-        sentConfidentialMessageUseCase.execute(input, output);
-
-        assertEquals(Integer.valueOf(2), output.getHandCardCount());
-
+    public void drawUseCase() {
+//        DrawUseCase drawUseCase = new DrawUseCase(playerRepository, gameCardRepository, eventBus);
+//        DrawUseCaseInput input = new DrawUseCaseInput();
+//        DrawUseCaseOutput output = new DrawUseCaseOutput();
+//
+//        input.setPlayerId(players.get(0).getId());
+//        input.setDrawCardNumber(2);
+//
+//        drawUseCase.execute(input, output);
+//
+//
+//
+//        assertEquals(5,output.getHandCardNumber());
+//
 
 
     }

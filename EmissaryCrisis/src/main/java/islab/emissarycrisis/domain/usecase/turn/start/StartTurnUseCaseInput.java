@@ -1,39 +1,39 @@
 package islab.emissarycrisis.domain.usecase.turn.start;
 
 public class StartTurnUseCaseInput {
-    private int playerId ;
-    private int turnNum ;
-    private int number ;
+    private String playerId ;
+    private Integer turnNum ;
+    private Integer number ;
 
     public StartTurnUseCaseInput() {
     }
 
-    public StartTurnUseCaseInput(int playerId, int turnNum) {
+    public StartTurnUseCaseInput(String playerId, Integer turnNum) {
         this.playerId = playerId;
         this.turnNum = turnNum;
     }
 
-    public int getPlayerId() {
+    public String getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
     }
 
-    public int getTurnNum() {
+    public Integer getTurnNum() {
         return turnNum;
     }
 
-    public void setTurnNum(int turnNum) {
+    public void setTurnNum(Integer turnNum) {
         this.turnNum = turnNum;
     }
 
-    public void setNumber(int i) {
+    public void setNumber(Integer i) {
         this.number = i ;
     }
 
-    public int getNumber(){
+    public Integer getNumber(){
         return this.number ;
     }
 }

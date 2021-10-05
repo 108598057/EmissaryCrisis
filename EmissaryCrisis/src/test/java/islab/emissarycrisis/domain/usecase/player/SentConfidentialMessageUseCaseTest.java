@@ -52,8 +52,5 @@ public class SentConfidentialMessageUseCaseTest {
         sentConfidentialMessageUseCase.execute(input, output);
 
         assertEquals(Integer.valueOf(2), output.getHandCardCount());
-
-
-
     }
 }

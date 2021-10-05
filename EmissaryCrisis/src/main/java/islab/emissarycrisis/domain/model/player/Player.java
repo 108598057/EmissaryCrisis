@@ -1,8 +1,10 @@
 package islab.emissarycrisis.domain.model.player;
 
 import islab.emissarycrisis.domain.model.DomainEventHolder;
+import islab.emissarycrisis.domain.model.cardPool.CardPool;
 import islab.emissarycrisis.domain.model.gamecard.GameCard;
 import islab.emissarycrisis.domain.model.player.event.ConfidentialMessageSent;
+import islab.emissarycrisis.domain.model.player.event.GameCardDrawn;
 import islab.emissarycrisis.domain.model.turn.event.TurnStarted;
 import islab.emissarycrisis.domain.usecase.player.sent.SentConfidentialMessageUseCase;
 
@@ -53,5 +55,11 @@ public class Player extends DomainEventHolder {
                 break;
             }
         this.addEvent( new ConfidentialMessageSent(this.getId(),toPlayerId, cardId));
+    }
+
+    public void draw(CardPool cardPool, Integer number) {
+        List<String> cardIds = cardPool.draw(number);
+        gameCards.addAll(cardIds);
+        addEvent(new GameCardDrawn(id, cardIds));
     }
 }

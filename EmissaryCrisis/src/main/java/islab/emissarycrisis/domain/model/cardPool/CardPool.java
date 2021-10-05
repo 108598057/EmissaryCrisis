@@ -2,6 +2,7 @@ package islab.emissarycrisis.domain.model.cardPool;
 
 import islab.emissarycrisis.domain.model.DomainEventHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CardPool extends DomainEventHolder {
@@ -15,4 +16,11 @@ public class CardPool extends DomainEventHolder {
         this.gameCards = gameCards;
     }
 
+    public List<String> draw(Integer number) {
+        List<String> cardIds = new ArrayList<>();
+        for(int k = 0; k < number; k++) {
+            cardIds.add(gameCards.remove(0));
+        }
+        return cardIds;
+    }
 }

@@ -4,30 +4,30 @@ import islab.emissarycrisis.domain.model.DomainEvent;
 
 public class TurnStarted implements DomainEvent {
 
-    private int playerId ;
-    private int number ;
+    private String playerId ;
+    private Integer number ;
 
     public TurnStarted() {
     }
 
-    public TurnStarted(int playerId, int number) {
+    public TurnStarted(String playerId, Integer number) {
         this.playerId = playerId;
         this.number = number;
     }
 
-    public int getPlayerId() {
+    public String getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
     }
 
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 }

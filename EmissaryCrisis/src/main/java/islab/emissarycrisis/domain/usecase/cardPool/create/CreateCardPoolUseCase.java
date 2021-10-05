@@ -20,7 +20,6 @@ public class CreateCardPoolUseCase {
     }
 
     public void execute(CreateCardPoolUseCaseOutput createCardPoolUseCaseOutput){
-
         CardPool cardPool = new CardPool();
         List<String> cardIds = new ArrayList<>();
         for (GameCard card : gameCardRepository.getGameCards()){
@@ -28,11 +27,10 @@ public class CreateCardPoolUseCase {
         }
         cardPool.setGameCards(cardIds);
 
-        cardPoolRepository.setCardPool(cardPool);
+        cardPoolRepository.updateCardPool(cardPool);
 
         eventBus.postAll(cardPool);
 
         createCardPoolUseCaseOutput.setCardNumber(cardPool.getGameCards().size());
-
     }
 }

@@ -14,7 +14,7 @@ public class InMemoryCardPoolRepository implements ICardPoolRepository {
     }
 
     @Override
-    public void setCardPool(CardPool cardPool){
+    public void updateCardPool(CardPool cardPool){
         this.cardPool = cardPool;
     }
 }

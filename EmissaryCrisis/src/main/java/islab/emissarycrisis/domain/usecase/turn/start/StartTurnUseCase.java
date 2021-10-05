@@ -14,7 +14,7 @@ public class StartTurnUseCase {
         this.turnRepository = turnRepository ;
     }
 
-    public void execute( StartTurnUseCaseInput startTurnCaseInput, StartTurnUseCaseOutput startTurnCaseOutput ){
+    public void execute(StartTurnUseCaseInput startTurnCaseInput, StartTurnUseCaseOutput startTurnCaseOutput){
         Turn turn = new Turn( startTurnCaseInput.getPlayerId(), startTurnCaseInput.getTurnNum(), startTurnCaseInput.getNumber() ) ;
 
         eventBus.postAll(turn);

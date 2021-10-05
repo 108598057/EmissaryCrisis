@@ -19,4 +19,12 @@ public class InMemoryPlayerRepository implements IPlayerRepository {
                 return player;
         return null;
     }
+
+    @Override
+    public void updatePlayer(Player player) {
+        for(int k = 0; k < players.size(); k++) {
+            if(players.get(k).getId().equals(player.getId()))
+                players.set(k, player);
+        }
+    }
 }

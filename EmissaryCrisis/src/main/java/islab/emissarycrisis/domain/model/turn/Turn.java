@@ -4,12 +4,11 @@ import islab.emissarycrisis.domain.model.DomainEventHolder;
 import islab.emissarycrisis.domain.model.turn.event.TurnStarted;
 
 public class Turn extends DomainEventHolder {
+    private String playerId ;
+    private Integer turnNum ;
+    private Integer number ;
 
-    private int playerId ;
-    private int turnNum ;
-    private int number ;
-
-    public Turn(int playerId, int turnNum, int number) {
+    public Turn(String playerId, Integer turnNum, Integer number) {
         super();
         this.playerId = playerId;
         this.turnNum = turnNum;
@@ -17,27 +16,27 @@ public class Turn extends DomainEventHolder {
         this.addEvent( new TurnStarted( playerId, 2 ) );
     }
 
-    public int getPlayerId() {
+    public String getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
     }
 
-    public int getTurnNum() {
+    public Integer getTurnNum() {
         return turnNum;
     }
 
-    public void setTurnNum(int turnNum) {
+    public void setTurnNum(Integer turnNum) {
         this.turnNum = turnNum;
     }
 
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 }

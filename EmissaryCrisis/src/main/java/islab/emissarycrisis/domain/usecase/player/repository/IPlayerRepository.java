@@ -5,4 +5,5 @@ import islab.emissarycrisis.domain.model.player.Player;
 public interface IPlayerRepository {
     void addPlayer(Player player);
     Player getPlayer(String playerId);
+    void updatePlayer(Player player);
 }
